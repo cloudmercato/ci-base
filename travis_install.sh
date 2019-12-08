@@ -1,12 +1,14 @@
 #!/bin/bash
 
+sudo=$(which sudo)
+
 if [[ "$TRAVIS_OS_NAME" == "linux" ]] ; then
     export DEBIAN_FRONTEND=noninteractive
-    sudo apt -y -qq update
-    sudo apt install -y -q python3 jq
+    $sudo apt -y -qq update
+    $sudo apt install -y -q python3 jq wget
 elif [[ "$TRAVIS_OS_NAME" == "osx" ]] ; then
     brew upgrade ruby
-    brew install jq
+    brew install jq wget
 fi
 
 echo -e "{
