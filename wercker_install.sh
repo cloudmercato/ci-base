@@ -1,0 +1,16 @@
+#!/bin/bash
+
+sudo=$(which sudo)
+
+export DEBIAN_FRONTEND=noninteractive
+$sudo apt -y -qq update
+$sudo apt install -y -q python3 jq wget
+
+echo -e "{
+  \"master_url\": \"$MASTER_URL\",
+  \"token\": \"$TOKEN\",
+  \"provider\": \"$PROVIDER_ID\",
+  \"datacenter\": \"$DATACENTER_ID\",
+  \"flavor\": $FLAVOR_ID,
+  \"image\": $IMAGE_ID
+}" > .cb_client.json
