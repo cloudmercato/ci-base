@@ -1,4 +1,5 @@
 #!/bin/bash
+
 if [[ "$TRAVIS_CPU_ARCH" == ppc64le ]]; then
     # Use a luajit that supports ppc64{,le}
     rm -rf third_party/luajit
