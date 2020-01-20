@@ -14,4 +14,4 @@ make clean
 ./autogen.sh
 ./configure --without-gcc-arch --without-mysql
 make
-sudo make install
+$sudo make install
