@@ -31,7 +31,7 @@ echo -e "{
 
 image_id=$(jq .images."${SEMAPHORE_AGENT_MACHINE_OS_IMAGE//-/_}_${SEMAPHORE_AGENT_MACHINE_ENVIRONMENT_TYPE}" .infra-opts.json)
 flavor_id=$(jq .flavors."${SEMAPHORE_AGENT_MACHINE_TYPE//-/_}_${SEMAPHORE_AGENT_MACHINE_ENVIRONMENT_TYPE}" .infra-opts.json)
-volume_flavor_id=$(jq .flavors."${SEMAPHORE_AGENT_MACHINE_TYPE//-/_}_${SEMAPHORE_AGENT_MACHINE_ENVIRONMENT_TYPE}" .infra-opts.json)
+volume_flavor_id=$(jq .volume_flavors."${SEMAPHORE_AGENT_MACHINE_TYPE//-/_}_${SEMAPHORE_AGENT_MACHINE_ENVIRONMENT_TYPE}" .infra-opts.json)
 
 echo -e "{
   \"master_url\": \"$MASTER_URL\",
