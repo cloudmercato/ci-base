@@ -36,6 +36,6 @@ echo -e "{
   \"provider\": \"$PROVIDER_ID\",
   \"datacenter\": \"$DATACENTER_ID\",
   \"flavor\": $flavor_id,
-  \"image\": $image_id,
+  \"image\": $image_id
 }" > .cb_client.json
 echo -e "$volume_flavor_id" | sed 's/"//g' > .volume_flavor_id

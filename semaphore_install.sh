@@ -21,11 +21,18 @@ echo -e "{
       \"e1_standard_2_VM\": \"$E1_2_ID\",
       \"e1_standard_4_VM\": \"$E1_4_ID\",
       \"e1_standard_8_VM\": \"$E1_8_ID\"
+  },
+  \"volume_flavors\": {
+      \"e1_standard_2_VM\": \"$E1_2_VOLUME_FLAVOR_ID\",
+      \"e1_standard_4_VM\": \"$E1_4_VOLUME_FLAVOR_ID\",
+      \"e1_standard_8_VM\": \"$E1_8_VOLUME_FLAVOR_ID\"
   }
 }" > .infra-opts.json
 
 image_id=$(jq .images."${SEMAPHORE_AGENT_MACHINE_OS_IMAGE//-/_}_${SEMAPHORE_AGENT_MACHINE_ENVIRONMENT_TYPE}" .infra-opts.json)
 flavor_id=$(jq .flavors."${SEMAPHORE_AGENT_MACHINE_TYPE//-/_}_${SEMAPHORE_AGENT_MACHINE_ENVIRONMENT_TYPE}" .infra-opts.json)
+volume_flavor_id=$(jq .flavors."${SEMAPHORE_AGENT_MACHINE_TYPE//-/_}_${SEMAPHORE_AGENT_MACHINE_ENVIRONMENT_TYPE}" .infra-opts.json)
+
 echo -e "{
   \"master_url\": \"$MASTER_URL\",
   \"token\": \"$TOKEN\",
@@ -34,3 +41,4 @@ echo -e "{
   \"flavor\": $flavor_id,
   \"image\": $image_id
 }" > .cb_client.json
+echo -e "$volume_flavor_id" | sed 's/"//g' > .volume_flavor_id
