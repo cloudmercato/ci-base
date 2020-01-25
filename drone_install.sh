@@ -19,11 +19,16 @@ echo -e "{
   \"flavors\": {
       \"amd64_docker\": \"$AMD64_DOCKER_FLAVOR_ID\",
       \"arm64_docker\": \"$ARM64_DOCKER_FLAVOR_ID\" 
+  },
+  \"volume_flavors\": {
+      \"amd64_docker\": \"$AMD64_DOCKER_VOLUME_FLAVOR_ID\",
+      \"arm64_docker\": \"$ARM64_DOCKER_VOLUME_FLAVOR_ID\" 
   }
 }" > .infra-opts.json
 
 image_id=$(jq .images.${DRONE_STAGE_ARCH}_${DRONE_STAGE_TYPE}_${DRONE_STAGE_OS} .infra-opts.json)
 flavor_id=$(jq .flavors.${DRONE_STAGE_ARCH}_${DRONE_STAGE_TYPE} .infra-opts.json)
+volume_flavor_id=$(jq .volume_flavors.${DRONE_STAGE_ARCH}_${DRONE_STAGE_TYPE} .infra-opts.json)
 
 echo -e "{
   \"master_url\": \"$MASTER_URL\",
@@ -31,5 +36,6 @@ echo -e "{
   \"provider\": \"$PROVIDER_ID\",
   \"datacenter\": \"$DATACENTER_ID\",
   \"flavor\": $flavor_id,
-  \"image\": $image_id
+  \"image\": $image_id,
 }" > .cb_client.json
+echo -e "$volume_flavor_id" | sed 's/"//g' > .volume_flavor_id
