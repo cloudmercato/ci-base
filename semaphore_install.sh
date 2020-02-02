@@ -28,7 +28,8 @@ echo -e "{
       \"e1_standard_8_VM\": \"$E1_8_VOLUME_FLAVOR_ID\"
   },
   \"datastore_types\": {
-      \"mysql\": \"$MYSQL_DATASTORE_TYPE_ID\"
+      \"mysql\": \"$MYSQL_DATASTORE_TYPE_ID\",
+      \"redis\": \"$REDIS_DATASTORE_TYPE_ID\"
   }
 }" > .infra-opts.json
 
@@ -54,3 +55,8 @@ echo -e "{
   \"password\": \"\",
   \"database\": \"testdb\"
 }" > .mysql.json
+echo -e "{
+  \"host\": \"127.0.0.1\",
+  \"port\": \"6379\",
+  \"password\": \"\"
+}" > .redis.json
