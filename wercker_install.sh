@@ -14,3 +14,10 @@ echo -e "{
   \"flavor\": $FLAVOR_ID,
   \"image\": $IMAGE_ID
 }" > .cb_client.json
+
+echo -e "$DATASTORE_TYPE_ID" > .datastore_type_id
+echo -e "{
+  \"host\": \"redis\",
+  \"port\": \"6379\",
+  \"password\": \"\"
+}" > .redis.json
