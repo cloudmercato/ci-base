@@ -6,6 +6,7 @@ if [[ "$TRAVIS_OS_NAME" == "linux" ]] ; then
     export DEBIAN_FRONTEND=noninteractive
     $sudo apt -y -qq update
     $sudo apt install -y -q python3 jq wget bc
+    $sudo sysctl -w net.ipv4.tcp_tw_reuse=1
 elif [[ "$TRAVIS_OS_NAME" == "osx" ]] ; then
     brew upgrade ruby
     brew install jq wget
@@ -36,3 +37,10 @@ echo -e "{
   \"flavor\": $flavor_id,
   \"image\": $image_id
 }" > .cb_client.json
+
+echo -e "$DATASTORE_TYPE_ID" > .datastore_type_id
+echo -e "{
+  \"host\": \"localhost\",
+  \"port\": \"6379\",
+  \"password\": \"\"
+}" > .redis.json
