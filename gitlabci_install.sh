@@ -4,7 +4,7 @@ sudo=$(which sudo)
 
 export DEBIAN_FRONTEND=noninteractive
 $sudo apt -y -qq update
-$sudo apt install -y -q jq wget
+$sudo apt install -y -q jq wget bc
 
 image_id="$IMAGE_ID"
 flavor_id="$FLAVOR_ID"

@@ -5,7 +5,7 @@ sudo=$(which sudo)
 if [[ "$TRAVIS_OS_NAME" == "linux" ]] ; then
     export DEBIAN_FRONTEND=noninteractive
     $sudo apt -y -qq update
-    $sudo apt install -y -q python3 jq wget
+    $sudo apt install -y -q python3 jq wget bc
 elif [[ "$TRAVIS_OS_NAME" == "osx" ]] ; then
     brew upgrade ruby
     brew install jq wget

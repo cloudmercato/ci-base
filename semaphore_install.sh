@@ -5,7 +5,7 @@ sudo=$(which sudo)
 if [[ "$SEMAPHORE_AGENT_MACHINE_OS_IMAGE" == "ubuntu"* ]] ; then
     export DEBIAN_FRONTEND=noninteractive
     $sudo apt -y -qq update
-    $sudo apt install -y -q python3 jq wget
+    $sudo apt install -y -q python3 jq wget bc
 elif [[ "$SEMAPHORE_AGENT_MACHINE_OS_IMAGE" == "macos"* ]] ; then
     brew upgrade ruby
     brew install jq wget

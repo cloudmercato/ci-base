@@ -5,7 +5,7 @@ sudo=$(which sudo)
 if [[ "$DRONE_STAGE_OS" == "linux" ]] ; then
     export DEBIAN_FRONTEND=noninteractive
     $sudo apt -y -qq update
-    $sudo apt install -y -q python3 jq wget
+    $sudo apt install -y -q python3 jq wget bc
 elif [[ "$DRONE_STAGE_OS" == "darwin" ]] ; then
     brew upgrade ruby
     brew install jq wget

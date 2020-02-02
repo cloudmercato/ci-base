@@ -1,9 +1,9 @@
 #!/bin/bash
 
 export DEBIAN_FRONTEND=noninteractive
-apt -y -qq update
-apt install -y -q python3 python3-pip jq wget
-update-alternatives --install /usr/bin/python python /usr/bin/python3 0
+sudo apt -y -qq update
+sudo apt install -y -q python3 python3-pip jq wget bc
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 0
 
 echo -e "{
   \"images\": {

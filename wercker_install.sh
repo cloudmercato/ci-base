@@ -4,7 +4,7 @@ sudo=$(which sudo)
 
 export DEBIAN_FRONTEND=noninteractive
 $sudo apt -y -qq update
-$sudo apt install -y -q python3 jq wget
+$sudo apt install -y -q python3 jq wget bc
 
 echo -e "{
   \"master_url\": \"$MASTER_URL\",
