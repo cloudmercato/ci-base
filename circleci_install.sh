@@ -4,7 +4,7 @@ export DEBIAN_FRONTEND=noninteractive
 apt -y -qq update
 apt install -y -q python3 python3-pip jq wget bc
 update-alternatives --install /usr/bin/python python /usr/bin/python3 0
-# update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 0
+update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 0
 
 echo -e "{
   \"images\": {
